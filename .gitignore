@@ -1,0 +1,10 @@
+__pycache__/
+data/
+Include/
+Lib/
+Scripts/
+share/
+
+.env
+__init__.py
+pyvenv.cfg
