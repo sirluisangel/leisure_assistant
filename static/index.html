@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Leisure Assistant PRO - AI Coach</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+  <div class="wrap">
+    <header><h1>Leisure Assistant — Coach emocional</h1></header>
+    <main>
+      <section class="input-box">
+        <label for="feeling">¿Cómo te sientes hoy? Cuéntame con tus palabras:</label>
+        <textarea id="feeling" rows="5" placeholder="Hoy no fue un buen día..."></textarea>
+        <div class="controls">
+          <button id="analyze">Analizar</button>
+          <button id="clear">Limpiar</button>
+        </div>
+      </section>
+      <section class="output-box hidden" id="output">
+        <h2>Resultado</h2>
+        <p><strong>Emoción detectada:</strong> <span id="emo"></span> (<span id="conf"></span>)</p>
+        <div class="recommendation" id="rec"></div>
+      </section>
+      <section class="history" id="history">
+        <h3>Historial</h3>
+        <div id="history-list"></div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

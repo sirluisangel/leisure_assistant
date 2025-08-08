@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+httpx
+python-dotenv
+passlib[bcrypt]
+PyJWT
+cachetools
+jinja2
+python-multipart
+torch
+transformers
+sentence-transformers
+scikit-learn
