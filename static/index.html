@@ -5,6 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Leisure Assistant PRO - AI Coach</title>
+  <link rel="shortcut icon" href="/static/favicon.svg" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 
@@ -39,7 +41,8 @@
       </section>
 
       <!-- Salida -->
-      <section id="output" class="bg-white rounded-2xl shadow-lg p-6 hidden">
+      <section id="output"
+        class="bg-white rounded-2xl shadow-lg p-6 opacity-0 invisible transition-opacity duration-300">
         <h2 class="text-xl font-semibold mb-4">Resultado</h2>
         <p class="mb-3">
           <strong>Emoción detectada:</strong>
@@ -50,10 +53,11 @@
       </section>
 
       <!-- Historial -->
-      <section id="history" class="bg-white rounded-2xl shadow-lg p-6">
+      <section id="history" class="bg-white rounded-2xl shadow-lg p-6 hidden">
         <h3 class="text-lg font-semibold mb-4">Historial</h3>
-        <div id="history-list" class="space-y-3 text-gray-700"></div>
+        <div id="history-list" class="space-y-3 text-gray-700 max-h-64 overflow-y-auto"></div>
       </section>
+
     </main>
 
   </div>
