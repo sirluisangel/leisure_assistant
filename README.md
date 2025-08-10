@@ -1,37 +1,94 @@
-# Leisure Assistant — AI Emotional
-## Instalación rápida
+# 🎯 Leisure Assistant
+
+> Asistente emocional inteligente que analiza sentimientos y proporciona recomendaciones personalizadas.
+
+## 📋 Características principales
+
+- 🧠 Análisis emocional mediante IA
+- 💡 Recomendaciones personalizadas 
+- 📊 Historial de análisis emocionales
+- 🌐 Soporte multilingüe
+- ⚡ API REST con FastAPI
+
+## 🚀 Instalación
+
+### Prerrequisitos
+
+- Python 3.8+
+- pip
+
+### Pasos de instalación
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/tuuser/leisure_assistant.git
+cd leisure_assistant
 ```
+
+2. Crear entorno virtual:
+```bash
 python -m venv venv
 ```
-### Windows:
-```
+
+3. Activar entorno virtual:
+
+**Windows:**
+```bash
 venv\Scripts\activate
 ```
-### Unix/Mac:
-```
+
+**Unix/macOS:**
+```bash
 source venv/bin/activate
 ```
-Básicamente, lo que debes hacer es ejecutar exactamente ese comando:
-```
+
+4. Instalar dependencias:
+```bash
 python -m pip install -U pip setuptools wheel
 pip install -r requirements.txt
 python -m spacy download es_core_news_sm
 ```
-## Ejecución
-```
-# crear carpetas de datos
+
+## 💻 Uso
+
+1. Crear directorio de datos:
+```bash
 mkdir data
+```
+
+2. Iniciar servidor:
+```bash
 uvicorn app.main:app --reload
 ```
-Abre http://127.0.0.1:8000/
-### Archivos clave
-- `app/main.py` : servidor FastAPI (rutas /, /analyze, /recommend, /history)
-- `app/emotion_net.py` : definición de la red neuronal PyTorch y utilidades de entrenamiento/inferecia
-- `app/nlp.py` : preprocesado con spaCy + embeddings con SentenceTransformers
-- `app/generator.py` : integración con transformers text-generation (GPT-2 por defecto) o opcional OpenAI
-- `static/` : frontend listo
 
-Notas sobre modelos y dataset
-- Si quieres un modelo ya entrenado: puedes usar modelos de HuggingFace (p. ej. un modelito de clasificacion en español)
-  o usar los scripts en `app/emotion_net.py` para entrenar con tu propio dataset local.
-- Para recomendaciones más ricas, el generador usa un prompt dinámico; si deseas mayor calidad considera usar OpenAI GPT-4 (añade OPENAI_API_KEY al .env).
+3. Abrir en navegador:
+```
+http://127.0.0.1:8000/
+```
+
+## 🏗️ Estructura del proyecto
+
+```
+leisure_assistant/
+├── app/
+│   ├── emotion_net.py   # Red neuronal de emociones
+│   ├── generator.py     # Generador de recomendaciones
+│   ├── nlp.py           # Procesamiento de lenguaje
+│   └── main.py          # Servidor FastAPI
+├── static/              # Frontend
+├── data/               # Datos y modelos
+└── requirements.txt    # Dependencias
+```
+
+## 🛠️ Desarrollo
+
+### Componentes principales
+- **FastAPI Server**: Maneja rutas y lógica de backend
+- **Emotion Net**: Red neuronal PyTorch para clasificación
+- **NLP Pipeline**: Preprocesamiento y embeddings
+- **Generator**: Sistema de recomendaciones con transformers
+
+### Modelos
+- Puedes usar modelos pre-entrenados de HuggingFace
+- Entrenamiento personalizado disponible en `emotion_net.py`
+- Integración opcional con OpenAI GPT-4
