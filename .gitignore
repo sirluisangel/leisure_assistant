@@ -1,10 +1,14 @@
-__pycache__/
-data/
 Include/
 Lib/
 Scripts/
 share/
+node_modules/
+__pycache__/
+data/
 
-.env
+*.env
+*.pyc
+*.json
 __init__.py
 pyvenv.cfg
+package-lock.json
