@@ -9,6 +9,8 @@ data/
 *.env
 *.pyc
 *.json
+
 __init__.py
+input.css
 pyvenv.cfg
 package-lock.json
