@@ -9,6 +9,7 @@ data/
 *.env
 *.pyc
 *.json
+*.gguf
 
 __init__.py
 input.css
