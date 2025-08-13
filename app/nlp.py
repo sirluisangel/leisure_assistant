@@ -1,7 +1,8 @@
 # app/nlp.py
 # Preprocesado con spaCy y embeddings con SentenceTransformers
-import spacy, os
+import spacy
 from sentence_transformers import SentenceTransformer
+
 nlp = spacy.load('es_core_news_sm')
 EMB_MODEL = None
 

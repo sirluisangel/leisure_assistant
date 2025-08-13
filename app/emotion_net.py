@@ -2,7 +2,9 @@
 # Red neuronal PyTorch para clasificación emocional (densa)
 import torch, os, json, numpy as np
 import torch.nn as nn
-EMOTIONS = ['Feliz','Triste','Enojado','Estresado','Desesperado','Miedo','Sorpresa']
+
+# Lista de emociones, agregadas nuevas emociones
+EMOTIONS = ['Feliz', 'Triste', 'Enojado', 'Estresado', 'Desesperado', 'Miedo', 'Sorpresa', 'Avergonzado', 'Calma']
 
 class EmotionNet(nn.Module):
     def __init__(self, input_dim=384, hidden_dim=256, output_dim=len(EMOTIONS)):
@@ -10,8 +12,9 @@ class EmotionNet(nn.Module):
         self.fc1 = nn.Linear(input_dim, hidden_dim)
         self.dropout = nn.Dropout(0.3)
         self.fc2 = nn.Linear(hidden_dim, 128)
-        self.fc3 = nn.Linear(128, output_dim)
+        self.fc3 = nn.Linear(128, output_dim)  # El output_dim ahora está basado en la longitud de EMOTIONS
         self.relu = nn.ReLU()
+
     def forward(self, x):
         x = self.relu(self.fc1(x))
         x = self.dropout(x)
@@ -29,7 +32,7 @@ def model_infer(model, vec):
         logits = model(x)
         probs = torch.softmax(logits, dim=1).cpu().numpy()[0]
         idx = int(probs.argmax())
-        return EMOTIONS[idx], float(round(probs[idx],2))
+        return EMOTIONS[idx], float(round(probs[idx], 2))
 
 # utilities to train quickly with small dataset (example)
 def train_small(model, X, y, epochs=30):
